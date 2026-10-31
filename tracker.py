@@ -1,4 +1,4 @@
-# The Tracker Does Math | Installment 3 Author: Rockwell Galvez
+# The Tracker Makes Decisions | Installment 4 | Author: Rockwell Galvez
 print( "=" * 40)
 print("\t     EXPENSE TRACKER")
 print("\tWhere Numbers Make Sense.")
@@ -16,8 +16,31 @@ subtotal = 0
 
 item1 = input("\nWhat is first expense? ")
 amount1 = float(input(f"What is the amount for {item1}? "))
+
+if amount1 > 200:
+    print("  Huge expense - are you sure?")
+elif amount1 > 100:
+    print(  "Big expense.")
+elif amount1 > 50:
+    print("  Moderate expense.")
+else:
+    print("  Small expense.")
+
 item2 = input("What is second expense? ")
 amount2 = float(input(f"What is the amount for {item2}? "))
+
+if amount1 > 200:
+    print("  Huge expense - are you sure?")
+elif amount1 > 100:
+    print(  "Big expense.")
+elif amount1 > 50:
+    print("  Moderate expense.")
+else:
+    print("  Small expense.")
+
+if amount1 > 100 and amount2 > 100:
+    print("  Two Big Expenses in a row - Slow Down")
+
 tax_percent = float(input(f"What is the Tax rate %? "))
 budget = float(input(f"What is the Budget? "))
 
@@ -31,14 +54,19 @@ left = budget - total
 
 print(f"\n{'-' * 40}")
 print("SUMMARY")
-print(f" - {item1}: \t\t₱{amount1}")
-print(f" - {item2}: \t\t₱{amount2}")
-print(f"Subtotal expense: \t₱{subtotal}")
-print(f"Average expense: \t₱{average}")
-print(f"Tax ({tax_percent}%): \t\t₱{tax}")
-print(f"Grand Total expense: \t₱{total}")
-print(f"Over budget? \t\t{over_budget}")
-print(f"Left in budget: \t₱{left}")
+print(f"  - {item1}:\t\t${amount1}")
+print(f"  - {item2}:\t\t${amount2}")
+print(f"Subtotal expense:\t${subtotal}")
+print(f"Average expense:\t${average}")
+print(f"Tax ({tax_percent}%):\t\t${tax}")
+print(f"Grand Total expense:\t${total}")
+if over_budget:
+    print(f"Over budget by ${total - budget}!")
+elif total > budget * 0.9:
+    print(f"Careful: only ${left} left.")
+else:
+    print(f"Within budget. ${left} left.")
+
 
 print("-" * 40)
-print("Made by: Rockwell Galvez | Installment 3")
+print("Made by: Rockwell Galvez | Installment 4")
